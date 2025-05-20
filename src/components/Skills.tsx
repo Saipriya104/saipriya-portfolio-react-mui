@@ -42,7 +42,7 @@ export default function Skills() {
 
         <Grid container spacing={4}>
           {skillCategories.map((category) => (
-            <Grid item xs={12} md={6} key={category.title}>
+            <Grid component="div" sx={{ width: { xs: '100%', md: '50%' } }} key={category.title}>
               <Paper 
                 elevation={0} 
                 sx={{ 

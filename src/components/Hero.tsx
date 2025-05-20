@@ -16,7 +16,7 @@ export default function Hero() {
     >
       <Container maxWidth="lg">
         <Grid container spacing={4} alignItems="center">
-          <Grid item xs={12} md={8} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
+          <Grid component="div" sx={{ width: { xs: '100%', md: '66.67%' }, textAlign: { xs: 'center', md: 'left' } }}>
             <Typography variant="subtitle1" color="primary" gutterBottom>
               Full Stack Developer
             </Typography>
@@ -102,7 +102,7 @@ export default function Hero() {
             </Stack>
           </Grid>
           
-          <Grid item xs={12} md={4} sx={{ display: { xs: 'none', md: 'block' } }}>
+          <Grid component="div" sx={{ width: { xs: '100%', md: '33.33%' }, display: { xs: 'none', md: 'block' } }}>
             <Box 
               sx={{
                 width: '300px',

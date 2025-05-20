@@ -55,7 +55,7 @@ export default function Projects() {
 
         <Grid container spacing={4}>
           {projects.map((project, index) => (
-            <Grid item xs={12} md={6} key={index}>
+            <Grid component="div" sx={{ width: { xs: '100%', md: '50%' } }} key={index}>
               <Card 
                 sx={{ 
                   height: '100%', 

@@ -30,7 +30,7 @@ export default function About() {
         </Box>
 
         <Grid container spacing={4}>
-          <Grid item container md={6} sx={{ gridColumn: { xs: 'span 12', md: 'span 6' } }}>
+          <Grid component="div" sx={{ width: { xs: '100%', md: '50%' } }}>
             <Typography variant="h5" sx={{ mb: 2, fontWeight: 600 }}>Professional Summary</Typography>
             <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
               Full Stack Developer with 2 years of experience, skilled in Spring Boot, ReactJS, and PostgreSQL. 
@@ -44,10 +44,10 @@ export default function About() {
             </Typography>
           </Grid>
           
-          <Grid item container md={6} sx={{ gridColumn: { xs: 'span 12', md: 'span 6' } }}>
+          <Grid component="div" sx={{ width: { xs: '100%', md: '50%' } }}>
             <Typography variant="h5" sx={{ mb: 2, fontWeight: 600 }}>Contact Information</Typography>
             <Grid container spacing={2}>
-              <Grid item sx={{ gridColumn: 'span 12' }}>
+              <Grid component="div" sx={{ width: '100%' }}>
                 <Card variant="outlined" sx={{ mb: 2 }}>
                   <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                     <LocationOnIcon color="primary" />
@@ -56,7 +56,7 @@ export default function About() {
                 </Card>
               </Grid>
               
-              <Grid item sx={{ gridColumn: { xs: 'span 12', sm: 'span 6' } }}>
+              <Grid component="div" sx={{ width: { xs: '100%', sm: '50%' } }}>
                 <Card variant="outlined" sx={{ mb: 2 }}>
                   <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                     <EmailIcon color="primary" />
@@ -65,7 +65,7 @@ export default function About() {
                 </Card>
               </Grid>
               
-              <Grid item sx={{ gridColumn: { xs: 'span 12', sm: 'span 6' } }}>
+              <Grid component="div" sx={{ width: { xs: '100%', sm: '50%' } }}>
                 <Card variant="outlined" sx={{ mb: 2 }}>
                   <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                     <PhoneIcon color="primary" />
@@ -74,7 +74,7 @@ export default function About() {
                 </Card>
               </Grid>
               
-              <Grid item sx={{ gridColumn: { xs: 'span 12', sm: 'span 6' } }}>
+              <Grid component="div" sx={{ width: { xs: '100%', sm: '50%' } }}>
                 <Card variant="outlined" sx={{ mb: 2 }}>
                   <CardContent sx={{ 
                     display: 'flex', 
@@ -91,7 +91,7 @@ export default function About() {
                 </Card>
               </Grid>
               
-              <Grid item sx={{ gridColumn: { xs: 'span 12', sm: 'span 6' } }}>
+              <Grid component="div" sx={{ width: { xs: '100%', sm: '50%' } }}>
                 <Card variant="outlined" sx={{ mb: 2 }}>
                   <CardContent sx={{ 
                     display: 'flex', 

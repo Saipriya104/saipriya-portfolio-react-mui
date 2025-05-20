@@ -85,7 +85,7 @@ export default function Contact() {
           
           <form onSubmit={handleSubmit}>
             <Grid container spacing={3}>
-              <Grid xs={12} sm={6}>
+              <Grid item sx={{ gridColumn: { xs: 'span 12', sm: 'span 6' } }}>
                 <TextField
                   fullWidth
                   label="Your Name"
@@ -96,7 +96,7 @@ export default function Contact() {
                 />
               </Grid>
               
-              <Grid xs={12} sm={6}>
+              <Grid item sx={{ gridColumn: { xs: 'span 12', sm: 'span 6' } }}>
                 <TextField
                   fullWidth
                   label="Your Email"
@@ -108,7 +108,7 @@ export default function Contact() {
                 />
               </Grid>
               
-              <Grid xs={12}>
+              <Grid item sx={{ gridColumn: 'span 12' }}>
                 <TextField
                   fullWidth
                   label="Your Message"
@@ -121,7 +121,7 @@ export default function Contact() {
                 />
               </Grid>
               
-              <Grid xs={12} textAlign="center">
+              <Grid item sx={{ gridColumn: 'span 12', textAlign: 'center' }}>
                 <Button
                   type="submit"
                   variant="contained"

@@ -1,5 +1,5 @@
 
-import { Box, Container, Typography, Grid, Card, CardContent, Chip, Stack } from '@mui/material';
+import { Box, Container, Typography, Grid, Card, CardContent, Chip, Stack, IconButton } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -19,11 +19,11 @@ const fadeInUp = keyframes`
 `;
 
 const contactInfo = [
-  { icon: LocationOnIcon, text: 'Hyderabad', color: '#4285F4' },
-  { icon: EmailIcon, text: 'saipriyad28@gmail.com', color: '#34a853' },
-  { icon: PhoneIcon, text: '7674838129', color: '#fbbc05' },
-  { icon: LinkedInIcon, text: 'LinkedIn Profile', color: '#0077b5', clickable: true },
-  { icon: GitHubIcon, text: 'GitHub Profile', color: '#333', clickable: true }
+  { icon: LocationOnIcon, text: 'Hyderabad', color: '#4285F4', type: 'info' },
+  { icon: EmailIcon, text: 'saipriyad28@gmail.com', color: '#34a853', type: 'email', link: 'mailto:saipriyad28@gmail.com' },
+  { icon: PhoneIcon, text: '7674838129', color: '#fbbc05', type: 'phone', link: 'tel:+917674838129' },
+  { icon: LinkedInIcon, text: 'LinkedIn Profile', color: '#0077b5', type: 'social', clickable: true, link: 'https://linkedin.com' },
+  { icon: GitHubIcon, text: 'GitHub Profile', color: '#333', type: 'social', clickable: true, link: 'https://github.com/Saipriya104' }
 ];
 
 const softSkills = [
@@ -36,6 +36,12 @@ const softSkills = [
 ];
 
 export default function About() {
+  const handleContactClick = (contact: typeof contactInfo[0]) => {
+    if (contact.link) {
+      window.open(contact.link, '_blank');
+    }
+  };
+
   return (
     <Box id="about" sx={{ py: { xs: 8, sm: 10, md: 12 }, bgcolor: '#f8fafc' }}>
       <Container maxWidth="lg">
@@ -46,7 +52,7 @@ export default function About() {
             sx={{ 
               fontWeight: 700,
               mb: 2,
-              fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem' },
+              fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
               animation: `${fadeInUp} 0.8s ease-out`
             }}
           >
@@ -56,7 +62,7 @@ export default function About() {
             variant="h6" 
             color="text.secondary"
             sx={{ 
-              fontSize: { xs: '1rem', md: '1.2rem' },
+              fontSize: { xs: '0.9rem', md: '1rem' },
               maxWidth: '600px',
               mx: 'auto',
               animation: `${fadeInUp} 0.8s ease-out 0.2s both`
@@ -74,7 +80,7 @@ export default function About() {
                 sx={{ 
                   mb: 3, 
                   fontWeight: 600,
-                  fontSize: { xs: '1.5rem', md: '2rem' },
+                  fontSize: { xs: '1.3rem', md: '1.7rem' },
                   color: 'primary.main'
                 }}
               >
@@ -85,7 +91,7 @@ export default function About() {
                 sx={{ 
                   mb: 4, 
                   lineHeight: 1.8,
-                  fontSize: { xs: '1rem', md: '1.1rem' },
+                  fontSize: { xs: '0.9rem', md: '1rem' },
                   color: 'text.secondary'
                 }}
               >
@@ -99,7 +105,7 @@ export default function About() {
                 sx={{ 
                   mb: 4, 
                   lineHeight: 1.8,
-                  fontSize: { xs: '1rem', md: '1.1rem' },
+                  fontSize: { xs: '0.9rem', md: '1rem' },
                   color: 'text.secondary'
                 }}
               >
@@ -113,7 +119,7 @@ export default function About() {
                 sx={{ 
                   mb: 3, 
                   fontWeight: 600,
-                  fontSize: { xs: '1.3rem', md: '1.5rem' },
+                  fontSize: { xs: '1.1rem', md: '1.3rem' },
                   color: 'primary.main'
                 }}
               >
@@ -129,6 +135,7 @@ export default function About() {
                       bgcolor: 'rgba(66, 133, 244, 0.1)',
                       color: 'primary.main',
                       fontWeight: 500,
+                      fontSize: { xs: '0.65rem', md: '0.75rem' },
                       '&:hover': {
                         bgcolor: 'rgba(66, 133, 244, 0.2)',
                         transform: 'translateY(-1px)'
@@ -146,84 +153,117 @@ export default function About() {
               <Typography 
                 variant="h4" 
                 sx={{ 
-                  mb: 3, 
+                  mb: 4, 
                   fontWeight: 600,
-                  fontSize: { xs: '1.5rem', md: '2rem' },
-                  color: 'primary.main'
+                  fontSize: { xs: '1.3rem', md: '1.7rem' },
+                  color: 'primary.main',
+                  textAlign: 'center'
                 }}
               >
                 📞 Let's Connect
               </Typography>
               
-              <Grid container spacing={2}>
-                {contactInfo.map((info, index) => (
-                  <Grid component="div" sx={{ width: '100%' }} key={index}>
-                    <Card 
-                      variant="outlined" 
-                      className="card-hover"
-                      sx={{ 
-                        mb: 2,
-                        border: '2px solid',
-                        borderColor: 'divider',
-                        borderRadius: 3,
-                        overflow: 'hidden',
-                        cursor: info.clickable ? 'pointer' : 'default',
-                        '&:hover': {
-                          borderColor: 'primary.main',
-                          bgcolor: 'rgba(66, 133, 244, 0.02)'
-                        }
-                      }}
-                    >
-                      <CardContent sx={{ 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        gap: 3,
-                        py: 3
-                      }}>
-                        <Box
-                          sx={{
-                            p: 1.5,
-                            borderRadius: 2,
-                            bgcolor: `${info.color}15`,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center'
-                          }}
-                        >
-                          <info.icon sx={{ color: info.color, fontSize: '1.5rem' }} />
-                        </Box>
-                        <Typography 
-                          variant="body1"
-                          sx={{ 
-                            fontWeight: 500,
-                            fontSize: { xs: '0.95rem', md: '1rem' }
-                          }}
-                        >
-                          {info.text}
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </Grid>
-                ))}
-              </Grid>
-
               <Box 
                 sx={{ 
-                  mt: 4, 
-                  p: 3, 
-                  bgcolor: 'primary.main',
-                  borderRadius: 3,
-                  color: 'white',
-                  textAlign: 'center'
+                  background: 'linear-gradient(135deg, rgba(66, 133, 244, 0.1) 0%, rgba(155, 93, 229, 0.1) 100%)',
+                  borderRadius: 4,
+                  p: 3,
+                  border: '2px solid rgba(66, 133, 244, 0.2)',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: '4px',
+                    background: 'linear-gradient(90deg, #4285F4, #9b5de5, #e85b9c)',
+                  }
                 }}
               >
-                <Typography variant="h6" sx={{ mb: 1, fontWeight: 600 }}>
-                  🎯 Current Focus
-                </Typography>
-                <Typography variant="body2" sx={{ opacity: 0.9 }}>
-                  Building scalable web applications • Learning new technologies • 
-                  Contributing to open source • Seeking exciting opportunities
-                </Typography>
+                <Grid container spacing={2}>
+                  {contactInfo.map((info, index) => (
+                    <Grid component="div" sx={{ width: '100%' }} key={index}>
+                      <Card 
+                        variant="outlined" 
+                        className="card-hover"
+                        sx={{ 
+                          mb: 2,
+                          border: '1px solid rgba(66, 133, 244, 0.3)',
+                          borderRadius: 3,
+                          overflow: 'hidden',
+                          cursor: info.clickable || info.link ? 'pointer' : 'default',
+                          bgcolor: 'rgba(255, 255, 255, 0.9)',
+                          backdropFilter: 'blur(10px)',
+                          transition: 'all 0.3s ease',
+                          '&:hover': {
+                            borderColor: 'primary.main',
+                            bgcolor: 'rgba(66, 133, 244, 0.08)',
+                            transform: 'translateY(-2px)',
+                            boxShadow: '0 8px 25px rgba(66, 133, 244, 0.2)'
+                          }
+                        }}
+                        onClick={() => handleContactClick(info)}
+                      >
+                        <CardContent sx={{ 
+                          display: 'flex', 
+                          alignItems: 'center', 
+                          gap: 3,
+                          py: 2.5
+                        }}>
+                          <Box
+                            sx={{
+                              p: 1.5,
+                              borderRadius: 2,
+                              bgcolor: `${info.color}15`,
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              boxShadow: `0 4px 15px ${info.color}20`
+                            }}
+                          >
+                            <info.icon sx={{ color: info.color, fontSize: '1.3rem' }} />
+                          </Box>
+                          <Typography 
+                            variant="body1"
+                            sx={{ 
+                              fontWeight: 500,
+                              fontSize: { xs: '0.85rem', md: '0.95rem' },
+                              flex: 1
+                            }}
+                          >
+                            {info.text}
+                          </Typography>
+                          {info.type === 'social' && (
+                            <IconButton 
+                              size="small"
+                              sx={{ 
+                                bgcolor: `${info.color}10`,
+                                '&:hover': { bgcolor: `${info.color}20` }
+                              }}
+                            >
+                              <info.icon sx={{ fontSize: '1rem', color: info.color }} />
+                            </IconButton>
+                          )}
+                        </CardContent>
+                      </Card>
+                    </Grid>
+                  ))}
+                </Grid>
+
+                <Box sx={{ mt: 3, textAlign: 'center' }}>
+                  <Typography 
+                    variant="body2" 
+                    sx={{ 
+                      color: 'text.secondary',
+                      fontStyle: 'italic',
+                      fontSize: { xs: '0.8rem', md: '0.85rem' }
+                    }}
+                  >
+                    Available for exciting opportunities • Open to collaboration
+                  </Typography>
+                </Box>
               </Box>
             </Box>
           </Grid>

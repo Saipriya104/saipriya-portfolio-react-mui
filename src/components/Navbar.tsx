@@ -15,7 +15,6 @@ import {
   useMediaQuery,
   useTheme,
   Container,
-  Fade,
   Chip
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -260,24 +259,6 @@ export default function Navbar() {
                   </Box>
                 </Button>
               ))}
-              <Button 
-                variant="contained" 
-                color="primary" 
-                onClick={() => handleNavClick('#contact')}
-                className="btn-gradient"
-                sx={{ 
-                  ml: 3, 
-                  borderRadius: '25px',
-                  px: 4,
-                  py: 1.5,
-                  fontWeight: 600,
-                  textTransform: 'none',
-                  fontSize: '0.95rem',
-                  boxShadow: '0 4px 15px rgba(66, 133, 244, 0.4)'
-                }}
-              >
-                💬 Get In Touch
-              </Button>
             </Box>
             
             <IconButton

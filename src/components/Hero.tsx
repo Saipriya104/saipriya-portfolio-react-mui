@@ -49,9 +49,18 @@ const techFloat = keyframes`
 
 export default function Hero() {
   const achievements = [
-    { label: "2+ Years", desc: "Experience" },
-    { label: "100%", desc: "Satisfaction" }
+    { label: "2+ Years", desc: "Experience" }
   ];
+
+    const handleDownloadResume = () => {
+    // Create a temporary link element
+    const link = document.createElement("a");
+    link.href = "/resume.pdf"; // The path to the resume in the public folder
+    link.download = "Sai_Priya_Resume.pdf"; // Set the download attribute with the desired file name
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link); // Clean up by removing the link
+  };
 
   const techStack = ["⚛️", "☕", "🗃️", "🎨", "🚀"];
 
@@ -144,21 +153,6 @@ export default function Hero() {
               </Typography>
             </Box>
             
-            <Box className="section-fade-in-delayed-2">
-              <Typography 
-                variant="h3" 
-                component="div" 
-                className="gradient-text"
-                sx={{ 
-                  fontWeight: 700,
-                  mb: 2,
-                  fontSize: { xs: '1.3rem', sm: '1.6rem', md: '2rem' },
-                  lineHeight: 1.3,
-                }}
-              >
-                Crafting elegant software solutions ✨
-              </Typography>
-            </Box>
             
             <Typography 
               variant="body1" 
@@ -266,6 +260,7 @@ export default function Hero() {
                     borderWidth: '2px'
                   }
                 }}
+                onClick={handleDownloadResume}
               >
                 Download Resume
               </Button>

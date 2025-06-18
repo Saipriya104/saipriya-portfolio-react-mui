@@ -14,9 +14,11 @@ import {
   ListItemText,
   useMediaQuery,
   useTheme,
-  Container
+  Container,
+  Fade
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 interface NavLink {
   name: string;
@@ -27,6 +29,7 @@ const navLinks: NavLink[] = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
+  { name: 'Experience', href: '#experience' },
   { name: 'Projects', href: '#projects' },
   { name: 'Contact', href: '#contact' }
 ];
@@ -34,6 +37,7 @@ const navLinks: NavLink[] = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -48,26 +52,79 @@ export default function Navbar() {
       } else {
         setScrolled(false);
       }
+
+      // Update active section based on scroll position
+      const sections = navLinks.map(link => link.href.substring(1));
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (mobileOpen) {
+      setMobileOpen(false);
+    }
+  };
+
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2, fontWeight: 700 }}>
-        <span className="text-portfolio-pink">S</span>aipriya
-      </Typography>
-      <List>
+    <Box sx={{ width: 280, height: '100%', bgcolor: 'background.paper' }}>
+      <Box sx={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'space-between', 
+        p: 2,
+        borderBottom: '1px solid',
+        borderColor: 'divider'
+      }}>
+        <Typography variant="h6" sx={{ fontWeight: 700 }}>
+          <span style={{ color: '#e85b9c' }}>S</span>aipriya
+        </Typography>
+        <IconButton onClick={handleDrawerToggle}>
+          <CloseIcon />
+        </IconButton>
+      </Box>
+      <List sx={{ pt: 2 }}>
         {navLinks.map((item) => (
           <ListItem key={item.name} disablePadding>
             <ListItemButton 
-              sx={{ textAlign: 'center' }}
-              component="a" 
-              href={item.href}
+              onClick={() => handleNavClick(item.href)}
+              sx={{ 
+                mx: 2,
+                borderRadius: 2,
+                mb: 1,
+                '&:hover': {
+                  bgcolor: 'rgba(66, 133, 244, 0.1)',
+                },
+                ...(activeSection === item.href.substring(1) && {
+                  bgcolor: 'rgba(66, 133, 244, 0.15)',
+                  color: 'primary.main',
+                  fontWeight: 600
+                })
+              }}
             >
-              <ListItemText primary={item.name} />
+              <ListItemText 
+                primary={item.name} 
+                primaryTypographyProps={{
+                  fontWeight: activeSection === item.href.substring(1) ? 600 : 400
+                }}
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -80,11 +137,12 @@ export default function Navbar() {
       <AppBar 
         position="fixed" 
         color="transparent"
-        elevation={scrolled ? 2 : 0}
+        elevation={0}
         sx={{
-          bgcolor: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
+          bgcolor: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.8)',
           transition: 'all 0.3s ease-in-out',
-          backdropFilter: scrolled ? 'blur(10px)' : 'none',
+          backdropFilter: 'blur(20px)',
+          borderBottom: scrolled ? '1px solid rgba(0, 0, 0, 0.1)' : 'none',
         }}
       >
         <Container maxWidth="lg">
@@ -96,25 +154,47 @@ export default function Navbar() {
                 flexGrow: 1, 
                 fontWeight: 700,
                 display: 'flex',
-                alignItems: 'center'
+                alignItems: 'center',
+                cursor: 'pointer'
               }}
+              onClick={() => handleNavClick('#home')}
             >
-              <span className="text-portfolio-pink">S</span>aipriya
+              <span style={{ color: '#e85b9c' }}>S</span>aipriya
             </Typography>
 
-            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
               {navLinks.map((link) => (
                 <Button 
                   key={link.name} 
-                  component="a"
-                  href={link.href}
+                  onClick={() => handleNavClick(link.href)}
                   sx={{ 
                     color: 'text.primary',
                     mx: 1,
+                    px: 2,
+                    py: 1,
+                    borderRadius: 2,
+                    position: 'relative',
+                    transition: 'all 0.3s ease',
                     '&:hover': {
                       color: 'primary.main',
-                      backgroundColor: 'transparent'
-                    }
+                      backgroundColor: 'rgba(66, 133, 244, 0.1)',
+                      transform: 'translateY(-1px)'
+                    },
+                    ...(activeSection === link.href.substring(1) && {
+                      color: 'primary.main',
+                      fontWeight: 600,
+                      '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        bottom: 0,
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        width: '20px',
+                        height: '2px',
+                        bgcolor: 'primary.main',
+                        borderRadius: '2px'
+                      }
+                    })
                   }}
                 >
                   {link.name}
@@ -123,12 +203,15 @@ export default function Navbar() {
               <Button 
                 variant="contained" 
                 color="primary" 
-                href="#contact"
+                onClick={() => handleNavClick('#contact')}
                 className="btn-gradient"
                 sx={{ 
                   ml: 2, 
-                  borderRadius: '24px',
-                  px: 3
+                  borderRadius: '25px',
+                  px: 3,
+                  py: 1,
+                  fontWeight: 600,
+                  textTransform: 'none'
                 }}
               >
                 Get In Touch
@@ -140,7 +223,13 @@ export default function Navbar() {
               aria-label="open drawer"
               edge="end"
               onClick={handleDrawerToggle}
-              sx={{ display: { md: 'none' } }}
+              sx={{ 
+                display: { md: 'none' },
+                bgcolor: scrolled ? 'rgba(66, 133, 244, 0.1)' : 'transparent',
+                '&:hover': {
+                  bgcolor: 'rgba(66, 133, 244, 0.2)'
+                }
+              }}
             >
               <MenuIcon />
             </IconButton>
@@ -155,17 +244,21 @@ export default function Navbar() {
           anchor="right"
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: 'block', md: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
+            '& .MuiDrawer-paper': { 
+              boxSizing: 'border-box', 
+              width: 280,
+              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.15)'
+            },
           }}
         >
           {drawer}
         </Drawer>
       </Box>
-      <Toolbar /> {/* Empty toolbar to offset content */}
+      <Toolbar />
     </Box>
   );
 }

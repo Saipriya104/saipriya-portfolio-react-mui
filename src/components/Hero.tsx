@@ -59,8 +59,8 @@ export default function Hero() {
     <Box 
       id="home" 
       sx={{
-        py: { xs: 6, md: 10 },
-        minHeight: '90vh',
+        py: { xs: 4, md: 6 },
+        minHeight: '85vh',
         display: 'flex',
         alignItems: 'center',
         background: 'linear-gradient(135deg, rgba(66, 133, 244, 0.1) 0%, rgba(155, 93, 229, 0.1) 50%, rgba(232, 91, 156, 0.1) 100%)',
@@ -96,7 +96,7 @@ export default function Hero() {
       }}
     >
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-        <Grid container spacing={4} alignItems="center">
+        <Grid container spacing={3} alignItems="center">
           <Grid 
             component="div" 
             sx={{ 
@@ -109,12 +109,12 @@ export default function Hero() {
                 label="👋 Hello, I'm a Full Stack Developer"
                 sx={{ 
                   mb: 2,
-                  px: 3,
-                  py: 1,
+                  px: 2,
+                  py: 0.5,
                   bgcolor: 'rgba(66, 133, 244, 0.1)',
                   color: 'primary.main',
                   fontWeight: 600,
-                  fontSize: { xs: '0.85rem', md: '0.95rem' },
+                  fontSize: { xs: '0.7rem', md: '0.8rem' },
                   border: '1px solid rgba(66, 133, 244, 0.2)',
                   '&:hover': {
                     transform: 'translateY(-2px)',
@@ -131,8 +131,8 @@ export default function Hero() {
                 component="h1" 
                 sx={{ 
                   fontWeight: 800,
-                  mb: 1.5,
-                  fontSize: { xs: '2.5rem', sm: '3rem', md: '4rem' },
+                  mb: 1,
+                  fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
                   lineHeight: 1.1,
                   background: 'linear-gradient(135deg, #1a1a1a 0%, #4285F4 50%, #9b5de5 100%)',
                   backgroundClip: 'text',
@@ -151,8 +151,8 @@ export default function Hero() {
                 className="gradient-text"
                 sx={{ 
                   fontWeight: 700,
-                  mb: 3,
-                  fontSize: { xs: '1.6rem', sm: '2rem', md: '2.5rem' },
+                  mb: 2,
+                  fontSize: { xs: '1.3rem', sm: '1.6rem', md: '2rem' },
                   lineHeight: 1.3,
                 }}
               >
@@ -164,11 +164,11 @@ export default function Hero() {
               variant="body1" 
               color="text.secondary" 
               sx={{ 
-                mb: 4,
+                mb: 3,
                 maxWidth: '600px',
                 mx: 'auto',
-                fontSize: { xs: '1rem', md: '1.1rem' },
-                lineHeight: 1.8,
+                fontSize: { xs: '0.85rem', md: '0.95rem' },
+                lineHeight: 1.6,
                 fontWeight: 400,
                 animation: `${fadeInUp} 1s ease-out 1s both`
               }}
@@ -180,7 +180,7 @@ export default function Hero() {
             {/* Achievement Stats */}
             <Box 
               sx={{ 
-                mb: 4,
+                mb: 3,
                 animation: `${fadeInUp} 1s ease-out 1.2s both`
               }}
             >
@@ -188,30 +188,30 @@ export default function Hero() {
                 direction={{ xs: 'column', sm: 'row' }}
                 spacing={2}
                 justifyContent="center"
-                sx={{ mb: 3 }}
+                sx={{ mb: 2 }}
               >
                 {achievements.map((achievement, index) => (
                   <Box 
                     key={achievement.label}
                     sx={{
                       textAlign: 'center',
-                      p: 2.5,
+                      p: 2,
                       borderRadius: 3,
                       bgcolor: 'rgba(255, 255, 255, 0.8)',
                       backdropFilter: 'blur(10px)',
                       border: '1px solid rgba(66, 133, 244, 0.2)',
                       transition: 'all 0.3s ease',
-                      minWidth: '140px',
+                      minWidth: '120px',
                       '&:hover': {
-                        transform: 'translateY(-5px)',
-                        boxShadow: '0 10px 30px rgba(66, 133, 244, 0.2)'
+                        transform: 'translateY(-3px)',
+                        boxShadow: '0 8px 20px rgba(66, 133, 244, 0.2)'
                       }
                     }}
                   >
-                    <Typography variant="h4" fontWeight={700} color="primary.main" sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }}>
+                    <Typography variant="h4" fontWeight={700} color="primary.main" sx={{ fontSize: { xs: '1.2rem', md: '1.5rem' } }}>
                       {achievement.label}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary" fontWeight={500} sx={{ fontSize: { xs: '0.8rem', md: '0.9rem' } }}>
+                    <Typography variant="body2" color="text.secondary" fontWeight={500} sx={{ fontSize: { xs: '0.7rem', md: '0.8rem' } }}>
                       {achievement.desc}
                     </Typography>
                   </Box>
@@ -221,28 +221,28 @@ export default function Hero() {
             
             <Stack 
               direction={{ xs: 'column', sm: 'row' }}
-              spacing={{ xs: 2, sm: 3 }}
+              spacing={{ xs: 2, sm: 2 }}
               justifyContent="center"
               sx={{ 
-                mb: 4,
+                mb: 3,
                 animation: `${fadeInUp} 1s ease-out 1.4s both`
               }}
             >
               <Button 
                 variant="contained" 
-                size="large"
+                size="medium"
                 className="btn-gradient"
                 href="#projects"
                 startIcon={<VisibilityIcon />}
                 sx={{ 
-                  borderRadius: '30px', 
-                  px: 4,
-                  py: 1.5,
-                  fontSize: { xs: '1rem', md: '1.1rem' },
+                  borderRadius: '25px', 
+                  px: 3,
+                  py: 1.2,
+                  fontSize: { xs: '0.85rem', md: '0.95rem' },
                   fontWeight: 600,
                   textTransform: 'none',
-                  boxShadow: '0 8px 30px rgba(66, 133, 244, 0.4)',
-                  minWidth: '180px'
+                  boxShadow: '0 6px 20px rgba(66, 133, 244, 0.4)',
+                  minWidth: '150px'
                 }}
               >
                 View My Work
@@ -250,17 +250,17 @@ export default function Hero() {
               
               <Button 
                 variant="outlined"
-                size="large"
+                size="medium"
                 startIcon={<DownloadIcon />}
                 className="btn-outline"
                 sx={{ 
-                  borderRadius: '30px', 
-                  px: 4,
-                  py: 1.5,
-                  fontSize: { xs: '1rem', md: '1.1rem' },
+                  borderRadius: '25px', 
+                  px: 3,
+                  py: 1.2,
+                  fontSize: { xs: '0.85rem', md: '0.95rem' },
                   fontWeight: 600,
                   textTransform: 'none',
-                  minWidth: '180px',
+                  minWidth: '150px',
                   borderWidth: '2px',
                   '&:hover': {
                     borderWidth: '2px'
@@ -273,7 +273,7 @@ export default function Hero() {
 
             <Stack 
               direction={{ xs: 'column', sm: 'row' }}
-              spacing={2}
+              spacing={1.5}
               justifyContent="center"
               alignItems="center"
               sx={{
@@ -288,7 +288,7 @@ export default function Hero() {
                   color: 'success.main',
                   fontWeight: 500,
                   border: '1px solid rgba(52, 168, 83, 0.2)',
-                  fontSize: { xs: '0.8rem', md: '0.9rem' }
+                  fontSize: { xs: '0.7rem', md: '0.8rem' }
                 }}
               />
               <Chip 
@@ -299,7 +299,7 @@ export default function Hero() {
                   color: 'warning.main',
                   fontWeight: 500,
                   border: '1px solid rgba(255, 193, 7, 0.2)',
-                  fontSize: { xs: '0.8rem', md: '0.9rem' }
+                  fontSize: { xs: '0.7rem', md: '0.8rem' }
                 }}
               />
             </Stack>

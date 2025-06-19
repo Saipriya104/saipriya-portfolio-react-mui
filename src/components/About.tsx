@@ -50,25 +50,13 @@ export default function About() {
             variant="h2" 
             component="h2"
             sx={{ 
-              fontWeight: 700,
+              fontWeight: 600,
               mb: 2,
               fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
               animation: `${fadeInUp} 0.8s ease-out`
             }}
           >
             About Me
-          </Typography>
-          <Typography 
-            variant="h6" 
-            color="text.secondary"
-            sx={{ 
-              fontSize: { xs: '0.9rem', md: '1rem' },
-              maxWidth: '600px',
-              mx: 'auto',
-              animation: `${fadeInUp} 0.8s ease-out 0.2s both`
-            }}
-          >
-            Get to know me better - my background, skills, and what drives my passion for development
           </Typography>
         </Box>
 

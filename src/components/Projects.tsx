@@ -262,27 +262,6 @@ export default function Projects() {
             </Grid>
           ))}
         </Grid>
-
-        <Box sx={{ textAlign: 'center', mt: 6 }}>
-          <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-            Want to see more of my work?
-          </Typography>
-          <Button
-            variant="outlined"
-            size="large"
-            startIcon={<GitHubIcon />}
-            className="btn-outline"
-            sx={{
-              borderRadius: '30px',
-              px: 4,
-              py: 1.5,
-              fontWeight: 600,
-              textTransform: 'none'
-            }}
-          >
-            View All Projects on GitHub
-          </Button>
-        </Box>
       </Container>
     </Box>
   );

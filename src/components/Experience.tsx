@@ -83,7 +83,7 @@ export default function Experience() {
             variant="h2" 
             component="h2"
             sx={{ 
-              fontWeight: 700,
+              fontWeight: 600,
               mb: 2,
               fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem' },
               animation: `${fadeInUp} 0.8s ease-out`
@@ -108,7 +108,7 @@ export default function Experience() {
         <Timeline position="alternate" sx={{ animation: `${fadeInUp} 0.8s ease-out 0.4s both` }}>
           {experiences.map((exp, index) => (
             <TimelineItem key={index}>
-              <TimelineOppositeContent color="text.secondary" sx={{ py: 2 }}>
+              <TimelineOppositeContent sx={{ py: 2, color: 'text.secondary' }}>
                 <Typography 
                   variant="body1" 
                   fontWeight={600}

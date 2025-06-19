@@ -113,27 +113,6 @@ export default function Hero() {
               textAlign: 'center'
             }}
           >
-            <Box className="section-fade-in">
-              <Chip 
-                label="👋 Hello, I'm a Full Stack Developer"
-                sx={{ 
-                  mb: 2,
-                  px: 2,
-                  py: 0.5,
-                  bgcolor: 'rgba(66, 133, 244, 0.1)',
-                  color: 'primary.main',
-                  fontWeight: 600,
-                  fontSize: { xs: '0.7rem', md: '0.8rem' },
-                  border: '1px solid rgba(66, 133, 244, 0.2)',
-                  '&:hover': {
-                    transform: 'translateY(-2px)',
-                    boxShadow: '0 8px 25px rgba(66, 133, 244, 0.3)'
-                  },
-                  transition: 'all 0.3s ease'
-                }}
-              />
-            </Box>
-            
             <Box className="section-fade-in-delayed">
               <Typography 
                 variant="h1" 

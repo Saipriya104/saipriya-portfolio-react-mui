@@ -79,7 +79,7 @@ export default function Contact() {
             borderColor: 'divider',
           }}
         >
-          {formStatus && (
+          {formStatus.success && (
             <MuiAlert severity={formStatus.success ? 'success' : 'error'} sx={{ mb: 3 }}>
               {formStatus.message}
             </MuiAlert>

@@ -141,13 +141,17 @@ export default function Experience() {
               <TimelineContent sx={{ py: 2 }}>
                 <Paper 
                   elevation={0} 
-                  className="card-hover"
                   sx={{ 
                     p: { xs: 3, md: 4 }, 
                     border: '2px solid',
                     borderColor: exp.type === 'work' ? 'primary.main' : 'secondary.main',
                     borderRadius: 3,
                     position: 'relative',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 8px 25px rgba(0,0,0,0.1)'
+                    },
                     '&::before': {
                       content: '""',
                       position: 'absolute',

@@ -37,13 +37,25 @@ export default function Footer() {
           
           <Box>
             <Stack direction="row" spacing={1}>
-              <IconButton color="primary" aria-label="LinkedIn">
+              <IconButton 
+                color="primary" 
+                aria-label="LinkedIn"
+                onClick={() => window.open('https://www.linkedin.com/in/sai-priya-45aab125a/', '_blank')}
+              >
                 <LinkedInIcon />
               </IconButton>
-              <IconButton color="primary" aria-label="GitHub">
+              <IconButton 
+                color="primary" 
+                aria-label="GitHub"
+                onClick={() => window.open('https://github.com/Saipriya104', '_blank')}
+              >
                 <GitHubIcon />
               </IconButton>
-              <IconButton color="primary" aria-label="Email">
+              <IconButton 
+                color="primary" 
+                aria-label="Email"
+                onClick={() => window.open('mailto:saipriyad28@gmail.com', '_blank')}
+              >
                 <EmailIcon />
               </IconButton>
             </Stack>

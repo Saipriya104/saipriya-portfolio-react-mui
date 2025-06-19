@@ -56,14 +56,14 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <Box id="projects" sx={{ py: { xs: 8, sm: 10, md: 12 }, bgcolor: '#f8fafc' }}>
+    <Box id="projects" sx={{ py: { xs: 4, sm: 5, md: 6 }, bgcolor: '#f8fafc' }}>
       <Container maxWidth="lg">
         <Box sx={{ mb: { xs: 6, md: 8 }, textAlign: 'center' }}>
           <Typography 
             variant="h2" 
             component="h2"
             sx={{ 
-              fontWeight: 700,
+              fontWeight: 600,
               mb: 2,
               fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem' },
               animation: `${fadeInUp} 0.8s ease-out`
@@ -87,7 +87,7 @@ export default function Projects() {
 
         <Grid container spacing={{ xs: 3, md: 4 }}>
           {projects.map((project, index) => (
-            <Grid component="div" sx={{ width: { xs: '100%', lg: '50%' } }} key={index}>
+            <Grid component="div" sx={{ width: { xs: '100%', lg: '100%' } }} key={index}>
               <Card 
                 className="card-hover"
                 sx={{ 

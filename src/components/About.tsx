@@ -61,7 +61,7 @@ export default function About() {
         </Box>
 
         <Grid container spacing={{ xs: 3, md: 6 }}>
-          <Grid component="div" sx={{ width: { xs: '100%', lg: '50%' } }}>
+          <Grid component="div" sx={{ width: { xs: '100%', lg: '100%' } }}>
             <Box sx={{ animation: `${fadeInUp} 0.8s ease-out 0.4s both` }}>
               <Typography 
                 variant="h4" 
@@ -136,7 +136,7 @@ export default function About() {
             </Box>
           </Grid>
           
-          <Grid component="div" sx={{ width: { xs: '100%', lg: '50%' } }}>
+          <Grid component="div" sx={{ width: { xs: '100%', lg: '100%' } }}>
             <Box sx={{ animation: `${fadeInUp} 0.8s ease-out 0.6s both` }}>
               <Typography 
                 variant="h4" 

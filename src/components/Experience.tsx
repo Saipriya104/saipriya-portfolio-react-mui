@@ -1,4 +1,3 @@
-
 import { Box, Container, Typography, Paper, Chip, Stack } from '@mui/material';
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
@@ -151,18 +150,6 @@ export default function Experience() {
                     '&:hover': {
                       transform: 'translateY(-2px)',
                       boxShadow: '0 8px 25px rgba(0,0,0,0.1)'
-                    },
-                    '&::before': {
-                      content: '""',
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      height: '4px',
-                      background: exp.type === 'work' 
-                        ? 'linear-gradient(90deg, #4285F4, #9b5de5)' 
-                        : 'linear-gradient(90deg, #9b5de5, #e85b9c)',
-                      borderRadius: '12px 12px 0 0'
                     }
                   }}
                 >
